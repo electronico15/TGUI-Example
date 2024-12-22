@@ -1,14 +1,15 @@
-import '@telegram-apps/telegram-ui/dist/styles.css';
-import './index.css';
+import "@telegram-apps/telegram-ui/dist/styles.css";
+import "./index.css";
+import eruda from "eruda";
 
-import { createRoot } from 'react-dom/client';
-import { App } from './App';
-import { setBackgroundAsSecondary } from './helpers/setBackgroundAsSecondary';
+eruda.init();
+
+import { createRoot } from "react-dom/client";
+import { App } from "./App";
+import { setBackgroundAsSecondary } from "./helpers/setBackgroundAsSecondary";
 
 setBackgroundAsSecondary();
 
-const root = createRoot(
-  document.getElementById('root') as HTMLElement
-);
+const root = createRoot(document.getElementById("root") as HTMLElement);
 
 root.render(<App />);

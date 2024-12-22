@@ -1,22 +1,19 @@
-import React from 'react';
+import React from "react";
+import { useInitData } from "@vkruglikov/react-telegram-web-app";
+import { Banner } from "@telegram-apps/telegram-ui";
+import { AppRoot } from "@telegram-apps/telegram-ui";
 
-import { AppRoot, List } from '@telegram-apps/telegram-ui';
-import { CellSection } from './components/CellSection';
-import { FormSection } from './components/FormSection/FormSection';
-import { BannerSection } from './components/BannerSection';
-import { TimelineSection } from './components/TimelineSection/TimelineSection';
-import { TooltipSection } from './components/TooltipSection/TooltipSection';
-import { ModalSection } from './components/ModalSection/ModalSection';
+export const App = () => {
+  const [initDataUnsafe] = useInitData();
+  const user = initDataUnsafe?.user;
+  const chat = initDataUnsafe?.chat;
 
-export const App = () => (
-  <AppRoot>
-    <List>
-      <CellSection />
-      <FormSection />
-      <BannerSection />
-      <TimelineSection />
-      <TooltipSection />
-      <ModalSection />
-    </List>
-  </AppRoot>
-);
+  return (
+    <AppRoot>
+      <Banner title="Información del Usuario">
+        {" "}
+        <p>ID del Usuario: {user}</p> <p>chat: {chat}</p>{" "}
+      </Banner>
+    </AppRoot>
+  );
+};
